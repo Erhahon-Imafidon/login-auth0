@@ -4,8 +4,8 @@ import './index.css'
 import App from './App.tsx'
 import { Auth0Provider } from "@auth0/auth0-react";
 
-const domain: string = process.env.REACT_APP_AUTH0_DOMAIN || '';
-const clientId: string = process.env.REACT_APP_AUTH0_CLIENT_ID || '';
+const domain: string = import.meta.env.REACT_APP_AUTH0_DOMAIN || '';
+const clientId: string = import.meta.env.REACT_APP_AUTH0_CLIENT_ID || '';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -13,6 +13,6 @@ createRoot(document.getElementById('root')!).render(
           redirect_uri: window.location.origin
       }}>
         <App />
-      </Auth0Provider>
+      </Auth0Provider>,
   </StrictMode>,
 )
